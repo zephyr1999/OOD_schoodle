@@ -1,0 +1,22 @@
+<h3>Index: People</h3>
+{%  if top_people %}
+	<ul>
+		{% for p in top_people %}
+		<li><a href="/schoodle/person/{{ p.id }}">{{p.name}} </a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No People are available</p>
+{% endif %}
+
+<h3>Index: courses</h3>
+{%  if top_courses %}
+	<ul>
+		{% for c in top_courses %}
+		<li><a href="/schoodle/course/{{ c.id }}">{{c.name}} </a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No Courses are available</p>
+{% endif %}
+
