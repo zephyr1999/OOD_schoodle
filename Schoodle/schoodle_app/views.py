@@ -84,7 +84,38 @@ def add_grade(request,course_id,instructor_id,student_id):
         f = AddGradeForm()
         return render(request, 'schoodle_app/add_grade.html', {"form":f})
 
+def add_instructor(request,course_id,admin_id):
+    if request.method =="POST":
+        f = AddInstructorForm(course_id,request.POST)
+        if f.is_valid():
+            #add course to instructor
+            i = f.cleaned_data['instructor']
+            c = Course.objects.get(id=course_id)
+            i.courses.add(c)
+            i.save()
+            template = loader.get_template('schoodle_app/add_instructor_success.html')
+            context = {"course":c,"instructor":i,"admin_id":admin_id}
+            return HttpResponse(template.render(context,request))
+    else:
+        f = AddInstructorForm(course_id=course_id)
+        return render(request, 'schoodle_app/add_instructor.html', {"form":f})
 
+
+def add_student(request,course_id,admin_id):
+    if request.method =="POST":
+        f = AddStudentForm(course_id,request.POST)
+        if f.is_valid():
+            #add course to instructor
+            s = f.cleaned_data['student']
+            c = Course.objects.get(id=course_id)
+            s.courses.add(c)
+            s.save()
+            template = loader.get_template('schoodle_app/add_student_success.html')
+            context = {"course":c,"student":s,"admin_id":admin_id}
+            return HttpResponse(template.render(context,request))
+    else:
+        f = AddStudentForm(course_id=course_id)
+        return render(request, 'schoodle_app/add_student.html', {"form":f})
 
 
 def misc_content(request,content):

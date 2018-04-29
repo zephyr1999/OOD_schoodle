@@ -11,7 +11,8 @@
         {% for item in items %}
         <li><a href=/schoodle/course/{{c.id}}/content/{{item.id}}>Content Item {{item.id}}</a></li>
         {% endfor %}
+	 <li><a href="/schoodle/misc_content/quiz_1">Quiz 1</a></li>
 </ul>
 
-<h4><a href="/schoodle/course/{{c.id}}/addinstructor">Add an instructor to this course</a></h4>
-<h4><a href="/schoodle/course/{{c.id}}/addstudent">Add a student to this course</a></h4>
+<h4><a href="/schoodle/course/{{c.id}}/addinstructor/{{admin_id}}">Add an instructor to this course</a></h4>
+<h4><a href="/schoodle/course/{{c.id}}/addstudent/{{admin_id}}">Add a student to this course</a></h4>
