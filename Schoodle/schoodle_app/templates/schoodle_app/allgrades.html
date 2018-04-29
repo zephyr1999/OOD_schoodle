@@ -1,0 +1,19 @@
+<h1>Schoodle App</h1><hr>
+  
+<h3>{{c.name}}</h3><hr>
+
+<h4>All Students' Grades</h4>
+
+<ul>
+        {% for student in students %}
+	<li><a href="/schoodle/course/{{c.id}}/addgrade/{{instructor_id}}/{{student.id}}"<h5>Student: {{student.name}}</a></h5>
+	<ul>
+		{% for grade in student.grades.all %}
+		<li>Assignment {{forloop.counter}} : {{grade.g}}</li>
+        	{% endfor %}
+	</ul>
+	</li>
+	{% endfor %}
+</ul>
+
+<h4>Click a student's name to add a new grade for that student.</h4>

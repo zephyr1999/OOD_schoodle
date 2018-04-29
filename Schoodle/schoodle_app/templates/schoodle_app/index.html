@@ -1,22 +1,37 @@
-<h3>Index: People</h3>
-{%  if top_people %}
+<h1>Schoodle App</h1><hr>
+
+<h3>Choose a person to proceed as</h3>
+{%  if students %}
+<p><b>Students:</b></p>
 	<ul>
-		{% for p in top_people %}
-		<li><a href="/schoodle/person/{{ p.id }}">{{p.name}} </a></li>
+		{% for s in students %}
+		<li><a href="/schoodle/student/{{ s.id }}">{{s.name}} </a></li>
 		{% endfor %}
 	</ul>
 {% else %}
-	<p> No People are available</p>
+	<p> No Students are available</p>
 {% endif %}
 
-<h3>Index: courses</h3>
-{%  if top_courses %}
+{%  if instructors %}
+<p><b>Instructors:</b></p>
 	<ul>
-		{% for c in top_courses %}
-		<li><a href="/schoodle/course/{{ c.id }}">{{c.name}} </a></li>
+		{% for i in instructors %}
+		<li><a href="/schoodle/instructor/{{ i.id }}">{{i.name}} </a></li>
 		{% endfor %}
 	</ul>
 {% else %}
-	<p> No Courses are available</p>
+	<p> No Instructors are available</p>
+{% endif %}
+
+
+{%  if admins %}
+<p><b>Administrators:</b></p>
+	<ul>
+		{% for a in admins %}
+		<li><a href="/schoodle/admin/{{ a.id }}">{{a.name}} </a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No Administrators are available</p>
 {% endif %}
 

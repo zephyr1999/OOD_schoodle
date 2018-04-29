@@ -33,6 +33,10 @@ class Person(models.Model):
 
 class Grade(models.Model):
     g = models.FloatField()
+    def __str__(self):
+        #default tostring method
+        return str(self.g)
+
 
 class ContentItem(models.Model):
         #data members
@@ -60,7 +64,7 @@ class ContentItemCollection(models.Model):
 
 class Student(Person):
     grades = models.ManyToManyField(Grade)
-    content = models.OneToOneField(ContentItemCollection,on_delete=models.CASCADE)
+    #content = models.ForeignKey(ContentItemCollection,on_delete=models.CASCADE)
 
 
 class Administrator(Person):
@@ -132,7 +136,8 @@ class GradesCollection(models.Model):
 
 class Instructor(Person):
     #instructor only has one additional field to person base class
-    content = models.OneToOneField(ContentItemCollection,on_delete=models.CASCADE)
+    content = models.ManyToManyField(ContentItemCollection)
+
 
 class NewsItem(models.Model):
         # data members
@@ -146,7 +151,7 @@ class NewsItem(models.Model):
 class Question(models.Model):
         #data members
         questionText = models.CharField(max_length=1000)
-        answer = models.CharField(max_length=500)
+        #answer = models.CharField(max_length=500)
         #answerTextList = models.OneToMany(answer)
         correctAnswerIndex = models.IntegerField(default=0)
 
@@ -155,10 +160,4 @@ class Question(models.Model):
                         return True
                 else:
                         return False
-
-
-class Question(models.Model):
-    # data members
-    questionText = models.CharField(max_length=1000)
-    name = models.CharField(max_length=200)
 

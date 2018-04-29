@@ -1,0 +1,14 @@
+<h1>Schoodle App</h1><hr>
+
+<h3>My Courses</h3>
+{% if courses %}
+        <ul>
+                {% for c in courses %}
+		<li><a href="/schoodle/course/{{ c.id }}/adminview/{{admin_id}}">{{c.name}}</a></li>
+                {% endfor %}
+        </ul>
+{% else %}
+<p> No Courses are available </p>
+
+{% endif %}
+<h3><a href="/schoodle/addcourse/{{admin_id}}">Add a new course</a></h3>

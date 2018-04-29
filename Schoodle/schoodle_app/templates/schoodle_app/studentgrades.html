@@ -1,0 +1,11 @@
+<h1>Schoodle App</h1><hr>
+  
+<h3>{{c.name}}</h3><hr>
+
+<h4>Your Grades</h4>
+
+<ul>
+        {% for grade in grades %}
+	<li>Assignment {{forloop.counter }}: {{grade.g}}</li>
+        {% endfor %}
+</ul>

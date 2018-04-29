@@ -1,0 +1,17 @@
+<h1>Schoodle App</h1><hr>
+
+<h3>{{c.name}}</h3><hr>
+
+<h4>Content</h4>
+
+<ul>
+        <li><a href="/schoodle/misc_content/syllabus">Syllabus</a></li>
+        <li><a href="/schoodle/misc_content/lecture_notes_1">Lecture Notes 1</a></li>
+        <li><a href="/schoodle/misc_content/lecture_notes_2">Lecture Notes 2</a></li>
+        {% for item in items %}
+        <li><a href=/schoodle/course/{{c.id}}/content/{{item.id}}>Content Item {{item.id}}</a></li>
+        {% endfor %}
+</ul>
+
+<h4><a href="/schoodle/course/{{c.id}}/addinstructor">Add an instructor to this course</a></h4>
+<h4><a href="/schoodle/course/{{c.id}}/addstudent">Add a student to this course</a></h4>

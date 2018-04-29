@@ -1,0 +1,8 @@
+<h1>Schoodle App</h1><hr>
+  
+<h3>Add Grade Form</h3>
+<form  method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+</form>
