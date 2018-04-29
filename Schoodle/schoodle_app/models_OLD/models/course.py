@@ -1,4 +1,5 @@
 from django.db import models
+from .person import Person
 from .student import Student
 from .instructor import Instructor
 from .quiz import Quiz

@@ -1,4 +1,4 @@
-from django import models
+from django.db import models
 from .person import Person
 from .grade import Grade
 from .content_item_collection import ContentItemCollection
